@@ -1,15 +1,14 @@
 $(function() {
-
     var colorPicker = {
-        "big-bird": "#efc70e",
+        "bigBird": "#efc70e",
         "elmo": "#c82322",
         "kermit": "#84a511",
         "oscar": "#76835d"
     }
+
     $('#select-box').on('click', 'a', function(evn) {
         var muppetId = $(evn.target).attr('alt');
         setSelected(muppetId, colorPicker[muppetId]);
-
     });
 });
 
@@ -17,7 +16,6 @@ function setSelected(selection, color) {
     $('body').css('background-color', color);
     $('img').css('opacity', '0.5');
     $('#' + selection).css('opacity', '1');
-
 
     $('#content').empty();
 
