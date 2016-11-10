@@ -1,0 +1,12 @@
+{
+    "name": "vras",
+    "version": "1.0.0",
+    "description": "docker-hackaton",
+    "main": "app.js",
+    "dependencies": {
+        "bootstrap": "^3.3.7",
+        "jquery": "^3.1.1",
+        "materialize-css": "^0.97.8",
+        "react": "^15.3.2"
+    }
+}
