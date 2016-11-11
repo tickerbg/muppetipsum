@@ -20,23 +20,23 @@ function setSelected(selection, color) {
     $('#content').empty();
 
     var selection = `<center class="row s12" id="select-box">
-    <div class="input-field col s4">
-    <select>
-      <option value="" disabled selected>Choose muppet paragraphs count</option>
-      <option value="1">Give me 1 quote!</option>
-      <option value="2">Give me 2 quote!</option>
-      <option value="3">Give me 3 quote!</option>
-      <option value="4">Give me 4 quote!</option>
-      <option value="5">Give me 5 quote!</option>
-      <option value="6">Give me 6 quote!</option>
-      <option value="7">Give me 7 quote!</option>
-      <option value="8">Give me 8 quote!</option>
-      <option value="9">Give me 9 quote!</option>
-      <option value="10">Give me 10 quote!</option>
+    <h4 class="col s6">Choose your quots ipsum count:</h4>
+    <div class="input-field col s3">    
+    <select>      
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</optiosn>
     </select>    
   </div> 
-  <div class="col s4">
-  <a class="waves-effect waves-light btn-large  black">Button</a> 
+  <div class="col s3">
+  <a class="waves-effect waves-light btn-large  black">Go go goooo!</a> 
   </div>
   </center>
   <div id="insum-content"></div>`

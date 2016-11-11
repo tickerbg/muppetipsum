@@ -41,7 +41,7 @@ img {
     transform: rotate(-10deg);
 }
 
-h1 {
+h1, h4 {
     color: white;
     text-shadow: 2px 2px 4px #000000;
 }
