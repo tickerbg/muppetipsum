@@ -42,9 +42,13 @@ img {
 }
 
 h1,
-h4 {
+h4, h5 {
     color: white;
     text-shadow: 2px 2px 4px #000000;
+}
+
+h5 {
+  text-align: justify;
 }
 
 option {

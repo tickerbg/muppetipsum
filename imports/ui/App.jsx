@@ -12,9 +12,9 @@ export class App extends Component {
   renderMuppets() {
     return this.props.muppets.map((muppet) => (
         <MuppetBox
-            key={muppet.name}
+            key={muppet.tag}
             imageFilePath={muppet.imageFilePath}
-            name={muppet.name} />
+            tag={muppet.tag} />
     ));
   }
 

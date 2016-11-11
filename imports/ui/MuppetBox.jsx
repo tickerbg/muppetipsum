@@ -7,8 +7,8 @@ export default class MuppetBox extends Component {
       <div className="col s3">
             <a className="tilt" href="#">
                 <img src={this.props.imageFilePath}
-                    alt={this.props.name}
-                    id={this.props.name} />
+                    alt={this.props.tag}
+                    id={this.props.tag} />
             </a>
         </div>
     );
@@ -17,5 +17,5 @@ export default class MuppetBox extends Component {
 
 MuppetBox.propTypes = {
   imageFilePath: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
 }
