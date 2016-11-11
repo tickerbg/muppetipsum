@@ -1,12 +1,17 @@
 {
-    "name": "vras",
-    "version": "1.0.0",
-    "description": "docker-hackaton",
-    "main": "app.js",
-    "dependencies": {
-        "bootstrap": "^3.3.7",
-        "jquery": "^3.1.1",
-        "materialize-css": "^0.97.8",
-        "react": "^15.3.2"
-    }
+  "name": "ipsum",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.18.0",
+    "hammerjs": "^2.0.8",
+    "jquery": "^3.1.1",
+    "meteor-node-stubs": "~0.2.0",
+    "pickadate": "^3.5.6",
+    "react": "^15.3.2",
+    "react-addons-pure-render-mixin": "^15.3.2",
+    "react-dom": "^15.3.2"
+  }
 }
