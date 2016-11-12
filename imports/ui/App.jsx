@@ -9,7 +9,10 @@ import ContentBox from './ContentBox';
 import { Muppets } from '../api/muppets.js';
 
 // Custom scripts
-import { shuffle, validateMuppetTag } from '../scripts/functions.js';
+import { shuffle, validateMuppetTag,  setBodyClass, generateIpsumHtml } from '../scripts/functions.js';
+
+// constants
+const NO_IPSUM_GENERATED_HTML = "<h5>Nothing generated for this muppet yet!</h5>";
 
 // App component - represents the whole app
 export class App extends Component {
@@ -18,7 +21,7 @@ export class App extends Component {
 
         this.state = {
             selectedMuppet: "",
-            loremipsum: "<h5>Nothing generated yet!</h5>",
+            loremipsum: NO_IPSUM_GENERATED_HTML,
         };
     }
 
@@ -28,40 +31,30 @@ export class App extends Component {
     */
     componentWillReceiveProps(nextProps) {
         if(nextProps.muppets != null) {
-            $("body").attr('class', nextProps.muppets[0].tag);
+            setBodyClass(nextProps.muppets[0].tag);
             this.setState({selectedMuppet: nextProps.muppets[0].tag});
         }
     }
 
     handleMuppetChange(muppetId) {
         if(validateMuppetTag(muppetId)) {
-        $("body").attr('class', muppetId);
+            setBodyClass(muppetId);
             this.setState({
                 selectedMuppet: muppetId,
+                loremipsum: NO_IPSUM_GENERATED_HTML,
             });
         } else {
             this.setState({
                 selectedMuppet: muppets[0].tag,
+                loremipsum: NO_IPSUM_GENERATED_HTML,
             });
         }
-        $('#ipsum-content').text('');
     }
 
     setData(data, paragraphCount) {
-        var result = "";
-        var $content = $('#ipsum-content');
-        $content.empty();
-        for (var i = 0; i < paragraphCount; i++) {
-            result += "<h5>";
-            var current = shuffle(data);
-            for (var quote of data) {
-                result += " " + quote;
-            }
-            result += '</h5>';
-        }
-
+        const ipsumHtml = generateIpsumHtml(data, paragraphCount);
         this.setState({
-            loremipsum: result,
+            loremipsum: ipsumHtml,
         });
     }
 
@@ -86,7 +79,6 @@ export class App extends Component {
     }
 
     render() {
-        console.log("render");
         return (
             <div>
                 <center className="row" id="select-box">

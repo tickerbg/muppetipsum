@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import 'jquery';
+
+import {getNumberInputValueById} from '../scripts/functions.js';
 
 export default class ContentBox extends Component {
     constructor(props) {
@@ -7,8 +8,7 @@ export default class ContentBox extends Component {
     }
 
     handleSubmit(event) {
-        var selectedQuoteCount = $("#quoteCount").val();
-        this.props.parentHandleSubmit(selectedQuoteCount);
+        this.props.parentHandleSubmit(getNumberInputValueById("quoteCount"));
     }
 
     render() {

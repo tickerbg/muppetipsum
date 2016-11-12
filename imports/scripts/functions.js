@@ -23,4 +23,31 @@ function validateMuppetTag(muppetTag) {
     return Muppets.find({tag: muppetTag}).count() > 0;
 }
 
-export { shuffle, validateMuppetTag };
+function setBodyClass(newClassName) {
+    $("body").attr('class', newClassName);
+}
+
+function generateIpsumHtml(quotes, paragraphCount) {
+    var result = "";
+    for(var a = 1; a <= paragraphCount; a++) {
+        result += generateIpsumParagraphHtml(quotes);
+    }
+    return result;
+}
+
+function generateIpsumParagraphHtml(quotes) {
+    result = "<h5>";
+    var current = shuffle(quotes);
+    for (var quote of quotes) {
+        result += " " + quote;
+    }
+    return (result += '</h5>');
+}
+
+function getNumberInputValueById(numberInputId) {
+    const idSelector = "#" + numberInputId;
+    console.log(idSelector);
+    return $(idSelector).val();
+}
+
+export { shuffle, validateMuppetTag, setBodyClass, generateIpsumHtml, getNumberInputValueById };
