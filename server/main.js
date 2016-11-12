@@ -1,15 +1,12 @@
-import {
-  Meteor
-}
-from 'meteor/meteor';
+import {  Meteor } from 'meteor/meteor';
 import {  Muppets } from '../imports/api/muppets.js';
 
 import fs from 'fs';
 import cheerio from 'cheerio';
 import express from 'express';
 import request from 'request';
-import {Cookies} from 'cookies';
-//var cheerio = require('../node_modules/cheerio/lib/cheerio.js');
+import { Cookies } from 'cookies';
+
 var elmo = {
   "name": "Elmo",
   "tag": "elmo",
@@ -67,7 +64,6 @@ function getImdbQuotes(callback) {
       }
       //console.log(muppets);
       callback(muppets);
-      //return muppets;
     });
   });
 
@@ -76,42 +72,42 @@ function getImdbQuotes(callback) {
 
 Meteor.startup(() => {
     getImdbQuotes(function (muppets) {
-    var quotes = {
-      elmo: [],
-      oscar: [],
-      kermit: [],
-      bigBird: []
-    };
-    for (var el of muppets) {
-      switch (el.name) {
-        case "Elmo":
-          quotes.elmo.push(el.quote);
-          break;
-        case "Big Bird":
-          quotes.bigBird.push(el.quote);
-          break;
-        case "Kermit the Frog":
-          quotes.kermit.push(el.quote);
-          break;
-        case "Oscar the Grouch":
-          quotes.oscar.push(el.quote);
-          break;
-        default:
+        var quotes = {
+            elmo: [],
+            oscar: [],
+            kermit: [],
+            bigBird: []
+          };
+      for (var el of muppets) {
+        switch (el.character) {
+          case "Elmo":
+            quotes.elmo.push(el.quote);
+            break;
+          case "Big Bird":
+            quotes.bigBird.push(el.quote);
+            break;
+          case "Kermit the Frog":
+            quotes.kermit.push(el.quote);
+            break;
+          case "Oscar the Grouch":
+            quotes.oscar.push(el.quote);
+            break;
+          default:
 
+        }
+        elmo.quotes = quotes.elmo;
+        bigBird.quotes = quotes.bigBird;
+        kermit.quotes = quotes.kermit;
+        oscar.quotes = quotes.oscar;
       }
-      elmo.quotes = quotes.elmo;
-      bigBird.quotes = quotes.bigBird;
-      kermit.quotes = quotes.kermit;
-      oscar.quotes = quotes.oscar;
-    }
+      //console.log(elmo);
   });
 
-
-  if (Muppets.find().count() < 4) {
+  Meteor.setTimeout(function(){if (Muppets.find().count() < 4) {
     Muppets.insert(elmo);
     Muppets.insert(bigBird);
     Muppets.insert(kermit);
     Muppets.insert(oscar);
-  }
+}}, 5000);
 
 });
