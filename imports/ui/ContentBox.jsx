@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
+// Our react components
+import GeneratedIpsum from './GeneratedIpsum';
+
 import {getNumberInputValueById} from '../scripts/functions.js';
 
 export default class ContentBox extends Component {
@@ -24,13 +27,13 @@ export default class ContentBox extends Component {
                         <a id= "submitButton" onClick={this.handleSubmit.bind(this)} className="waves-effect waves-light btn-large black">Go go goooo!</a>
                     </div>
                 </center>
-                <div id="ipsum-content" dangerouslySetInnerHTML={{__html: this.props.loremIpsumHtml}}></div>
+                <GeneratedIpsum paragraphs={this.props.loremIpsumHtml} />
             </center>
         );
     }
 }
 
 ContentBox.propTypes = {
-    loremIpsumHtml: PropTypes.string.isRequired,
+    loremIpsumHtml: PropTypes.array.isRequired,
     parentHandleSubmit: PropTypes.func.isRequired,
 }

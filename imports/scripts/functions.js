@@ -28,25 +28,25 @@ function setBodyClass(newClassName) {
 }
 
 function generateIpsumHtml(quotes, paragraphCount) {
-    var result = "";
+    var result = [];
     for(var a = 1; a <= paragraphCount; a++) {
-        result += generateIpsumParagraphHtml(quotes);
+        var paragraph = generateIpsumParagraphHtml(quotes);
+        result.push(paragraph);
     }
     return result;
 }
 
 function generateIpsumParagraphHtml(quotes) {
-    result = "<h5>";
+    result = "";
     var current = shuffle(quotes);
     for (var quote of quotes) {
         result += " " + quote;
     }
-    return (result += '</h5>');
+    return result;
 }
 
 function getNumberInputValueById(numberInputId) {
     const idSelector = "#" + numberInputId;
-    console.log(idSelector);
     return $(idSelector).val();
 }
 

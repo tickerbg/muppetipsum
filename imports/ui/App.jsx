@@ -12,7 +12,7 @@ import { Muppets } from '../api/muppets.js';
 import { shuffle, validateMuppetTag,  setBodyClass, generateIpsumHtml } from '../scripts/functions.js';
 
 // constants
-const NO_IPSUM_GENERATED_HTML = "<h5>Nothing generated for this muppet yet!</h5>";
+const NO_IPSUM_GENERATED_HTML = ["Nothing generated for this muppet yet!"];
 
 // App component - represents the whole app
 export class App extends Component {
@@ -93,7 +93,7 @@ export class App extends Component {
 }
 
 App.propTypes = {
-  muppets: PropTypes.array.isRequired,
+    muppets: PropTypes.array.isRequired,
 };
 
 export default createContainer(() => {
